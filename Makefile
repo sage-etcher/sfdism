@@ -7,14 +7,18 @@ FLAVOR ?= i8080
 # FLAVOR ?= z80
 # FLAVOR ?= z80intel
 
-EMBEDS = ${FLAVOR}_primary.txt
+EMBEDS = ${FLAVOR}/primary.txt
 
-ifeq (FLAVOR, z80intel)
-EMBEDS += ${FLAVOR}_cb.h ${FLAVOR}_dd.h ${FLAVOR}_ed.h ${FLAVOR}_fd.h
+EXTENDED_OPCODES=	n
+
+ifeq (${FLAVOR},z80)
+EXTENDED_OPCODES=	y
 endif
 
-ifeq (FLAVOR, z80)
-EMBEDS += ${FLAVOR}_cb.h ${FLAVOR}_dd.h ${FLAVOR}_ed.h ${FLAVOR}_fd.h
+ifeq (${EXTENDED_OPCODES},y)
+EMBEDS += ${FLAVOR}/bit.txt ${FLAVOR}/misc.txt \
+		  ${FLAVOR}/ix_bit.txt ${FLAVOR}/ix.txt \
+		  ${FLAVOR}/iy_bit.txt ${FLAVOR}/iy.txt
 endif
 
 build: dism${FLAVOR}
@@ -26,13 +30,13 @@ clean:
 	rm -f dism${FLAVOR}
 
 .c.o:
-	cc -c -o $@ $< -DDISM_FLAVOR=${FLAVOR}
+	cc -c -o $@ $< -DFLAVOR=${FLAVOR}
 
 opcodes.c: ${EMBEDS}
-	./gen_c_embeds $@ $^
+	./gen_c_embeds $@ ${EMBEDS}
 
-dismi8080: dism.o opcodes.o
-	cc -o $@ $^
+dism${FLAVOR}: dism.o opcodes.o
+	cc -o $@ $^ -DFLAVOR=${FLAVOR}
 
 # end of file
 # vim: noet

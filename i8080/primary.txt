@@ -4,7 +4,7 @@ stax    b
 inx     b
 inr     b
 dcr     b
-mvi     b,0$h
+mvi     b,0!h
 rlc
 *nop
 dad     b
@@ -12,7 +12,7 @@ ldax    b
 dcx     b
 inr     c
 dcr     c
-mvi     c,0$h
+mvi     c,0!h
 rrc
 *nop
 lxi     d,0@h
@@ -20,7 +20,7 @@ stax    d
 inx     d
 inr     d
 dcr     d
-mvi     d,0$h
+mvi     d,0!h
 ral
 *nop
 dad     d
@@ -28,7 +28,7 @@ ldax    d
 dcx     d
 inr     e
 dcr     e
-mvi     e,0$h
+mvi     e,0!h
 rar
 *nop
 lxi     h,0@h
@@ -36,7 +36,7 @@ shld    0@h
 inx     h
 inr     h
 dcr     h
-mvi     h,0$h
+mvi     h,0!h
 daa
 *nop
 dad     h
@@ -44,7 +44,7 @@ lhld    0@h
 dcx     h
 inr     l
 dcr     l
-mvi     l,0$h
+mvi     l,0!h
 cma
 *nop
 lxi     sp,0@h
@@ -52,7 +52,7 @@ sta     0@h
 inx     sp
 inr     m
 dcr     m
-mvi     m,0$h
+mvi     m,0!h
 stc
 *nop
 dad     sp
@@ -60,7 +60,7 @@ lda     0@h
 dcx     sp
 inr     a
 dcr     a
-mvi     a,0$h
+mvi     a,0!h
 cmc
 mov     b,b
 mov     b,c
@@ -196,7 +196,7 @@ jnz     0@h
 jmp     0@h
 cnz     0@h
 push    b
-adi     0$h
+adi     0!h
 rst     0
 rz
 ret
@@ -204,23 +204,23 @@ jz      0@h
 *jmp    0@h
 cz      0@h
 call    0@h
-aci     0$h
+aci     0!h
 rst
 rnc
 pop     d
 jnc     0@h
-out     0$h
+out     0!h
 cnc     0@h
 push    d
-sui     0$h
+sui     0!h
 rst     2
 rc
 *ret
 jc      0@h
-in      0$h
+in      0!h
 cc      0@h
 *call   0@h
-sbi     0$h
+sbi     0!h
 rst
 rpo
 pop
@@ -228,7 +228,7 @@ jpo     0@h
 xthl
 cpo     0@h
 push
-ani     0$h
+ani     0!h
 rst
 rpe
 pchl
@@ -236,7 +236,7 @@ jpe     0@h
 xchg
 cpe     0@h
 *call   0@h
-xri     0$h
+xri     0!h
 rst
 rp
 pop     psw
@@ -244,7 +244,7 @@ jp      0@h
 di
 cp      0@h
 push    0sw
-ori     0$h
+ori     0!h
 rst
 rm
 sphl
@@ -252,5 +252,5 @@ jm      0@h
 ei
 cm      0@h
 *call   0@h
-cpi     0$h
+cpi     0!h
 rst
