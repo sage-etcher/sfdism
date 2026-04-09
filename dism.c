@@ -46,7 +46,49 @@ main (int argc, char **argv)
 
         /* log asm opcode */
         byte = getbyte ();
-        dism_opcode (byte, PRIMARY_TABLE);
+        switch (byte)
+        {
+#if FLAVOR == z80 || FLAVOR == z80intel
+        case 0xcb: /* bits */
+            byte = getbyte ();
+            dism_opcode (byte, BIT_TABLE);
+            break;
+
+        case 0xed: /* msic */
+            byte = getbyte ();
+            dism_opcode (byte, MISC_TABLE);
+            break;
+
+        case 0xdd: /* ix */
+            byte = getbyte ();
+            if (byte == 0xcb)   /* ix_bits */
+            {
+                dism_opcode (byte, IX_BIT_TABLE);
+            }
+            else
+            {
+                dism_opcode (byte, IX_TABLE);
+            }
+            break;
+
+        case 0xfd: /* iy */
+            byte = getbyte ();
+            if (byte == 0xcb)   /* iy_bits */
+            {
+                dism_opcode (byte, IY_BIT_TABLE);
+            }
+            else
+            {
+                dism_opcode (byte, IY_TABLE);
+            }
+            break;
+#endif
+
+        default:
+            dism_opcode (byte, PRIMARY_TABLE);
+            break;
+
+        }
 
         /* log offset */
         printf (";%04x\t", s_opcode_addr);
@@ -149,19 +191,32 @@ dism_opcode (uint8_t opcode_byte, const char *opcode_table[])
     {
         switch (c)
         {
+        case '^':   /* relative jump */
+            ibyte_low  = getbyte();
+
+            buf_iter += sprintf (buf_iter, "%04x", 
+                    s_opcode_addr + (int16_t)(int8_t)ibyte_low);
+            break;
+
+        case '%':   /* intermediate signed byte */
+            ibyte_low  = getbyte();
+
+            buf_iter += sprintf (buf_iter, "%+d", (int8_t)ibyte_low);
+            break;
+
+        case '!':   /* intermediate byte */
+            ibyte_low  = getbyte();
+
+            *buf_iter++ = xtoc (ibyte_low >> 4);
+            *buf_iter++ = xtoc (ibyte_low);
+            break;
+
         case '@':   /* intermediate word */
             ibyte_low  = getbyte ();
             ibyte_high = getbyte ();
 
             *buf_iter++ = xtoc (ibyte_high >> 4);
             *buf_iter++ = xtoc (ibyte_high);
-            *buf_iter++ = xtoc (ibyte_low >> 4);
-            *buf_iter++ = xtoc (ibyte_low);
-            break;
-
-        case '$':   /* intermediate byte */
-            ibyte_low  = getbyte();
-
             *buf_iter++ = xtoc (ibyte_low >> 4);
             *buf_iter++ = xtoc (ibyte_low);
             break;
