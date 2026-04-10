@@ -13,7 +13,7 @@
 #define OPCODE_MAX_BYTES 3
 
 #elif FLAVOR == z80 || FLAVOR == z80intel
-#define OPCODE_MAX_BYTES 5
+#define OPCODE_MAX_BYTES 4
 
 #else
 #error "unknown FLAVOR, cannot determine OPCODE_MAX_BYTES"

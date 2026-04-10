@@ -1,0 +1,256 @@
+in0     b,0!h
+out0    0!h,b
+;BAD OP
+;BAD OP
+tst     b
+;BAD OP
+;BAD OP
+;BAD OP
+in0     c,0!h
+out     0!h,c
+;BAD OP
+;BAD OP
+tst     c
+;BAD OP
+;BAD OP
+;BAD OP
+in0     d,0!h
+out0    0!h,d
+;BAD OP
+;BAD OP
+tst     d
+;BAD OP
+;BAD OP
+;BAD OP
+in0     e,0!h
+out     0!h,e
+;BAD OP
+;BAD OP
+tst     e
+;BAD OP
+;BAD OP
+;BAD OP
+in0     h,0!h
+out0    0!h,h
+;BAD OP
+;BAD OP
+tst     h
+;BAD OP
+;BAD OP
+;BAD OP
+in0     l,0!h
+out     0!h,l
+;BAD OP
+;BAD OP
+tst     l
+;BAD OP
+;BAD OP
+;BAD OP
+in0     m,0!h
+out0    0!h,m
+;BAD OP
+;BAD OP
+tst     m
+;BAD OP
+;BAD OP
+;BAD OP
+in0     a,0!h
+out     0!h,a
+;BAD OP
+;BAD OP
+tst     a
+;BAD OP
+;BAD OP
+;BAD OP
+inp     b,0!h
+outp    0!h,b
+dsbc    b
+sbcd    0@h
+neg
+retn
+im0
+ldia
+inp     c
+outp    c
+dadc    b
+lbcd    0@h
+mlt     b
+reti
+;BAD OP
+ldra
+inp     d
+outp    d
+dsbc    d
+sded    0@h
+;BAD OP
+;BAD OP
+im1
+ldai
+inp     e
+outp    e
+dadc    d
+lded    0@h
+mlt     d
+;BAD OP
+im2
+ldar
+inp     h
+outp    h
+dsbc    h
+shld    0@h
+tsti    0!h
+;BAD OP
+;BAD OP
+rrd
+inp     l
+outp    l
+dadc    h
+lhld    0@h
+mlt     h
+;BAD OP
+;BAD OP
+rld
+inp     m
+outp    m
+dsbc    sp
+sspd    0@h
+tsio    0!h
+;BAD OP
+slp
+;BAD OP
+inp     a
+outp    a
+dadc    sp
+lspd    0@h
+mlt     sp
+;BAD OP
+;BAD OP
+;BAD OP
+;BAD OP
+;BAD OP
+;BAD OP
+;BAD OP
+;BAD OP
+;BAD OP
+;BAD OP
+;BAD OP
+;BAD OP
+;BAD OP
+;BAD OP
+otdm
+;BAD OP
+;BAD OP
+;BAD OP
+;BAD OP
+;BAD OP
+;BAD OP
+;BAD OP
+oimr
+;BAD OP
+;BAD OP
+;BAD OP
+;BAD OP
+;BAD OP
+;BAD OP
+;BAD OP
+odmr
+;BAD OP
+;BAD OP
+;BAD OP
+;BAD OP
+ldi
+cci
+ini
+oti
+;BAD OP
+;BAD OP
+;BAD OP
+;BAD OP
+ldd
+ccd
+ind
+otd
+;BAD OP
+;BAD OP
+;BAD OP
+;BAD OP
+ldir
+ccir
+inir
+otir
+;BAD OP
+;BAD OP
+;BAD OP
+;BAD OP
+lddr
+ccdr
+indr
+otdr
+;BAD OP
+;BAD OP
+;BAD OP
+;BAD OP
+;BAD OP
+;BAD OP
+;BAD OP
+;BAD OP
+;BAD OP
+;BAD OP
+;BAD OP
+;BAD OP
+;BAD OP
+;BAD OP
+;BAD OP
+;BAD OP
+;BAD OP
+;BAD OP
+;BAD OP
+;BAD OP
+;BAD OP
+;BAD OP
+;BAD OP
+;BAD OP
+;BAD OP
+;BAD OP
+;BAD OP
+;BAD OP
+;BAD OP
+;BAD OP
+;BAD OP
+;BAD OP
+;BAD OP
+;BAD OP
+;BAD OP
+;BAD OP
+;BAD OP
+;BAD OP
+;BAD OP
+;BAD OP
+;BAD OP
+;BAD OP
+;BAD OP
+;BAD OP
+;BAD OP
+;BAD OP
+;BAD OP
+;BAD OP
+;BAD OP
+;BAD OP
+;BAD OP
+;BAD OP
+;BAD OP
+;BAD OP
+;BAD OP
+;BAD OP
+;BAD OP
+;BAD OP
+;BAD OP
+;BAD OP
+;BAD OP
+;BAD OP
+;BAD OP
+;BAD OP
+;BAD OP
+;BAD OP
+;BAD OP
+;BAD OP

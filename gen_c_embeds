@@ -24,7 +24,7 @@ with open (output_file, "w+", encoding="utf-8") as outfile:
 
             var_name = input_file.replace ("i8080/", "") \
                                  .replace ("i8085/", "") \
-                                 .replace ("z80input/", "") \
+                                 .replace ("z80intel/", "") \
                                  .replace ("z80/", "") \
                                  .replace ("./", "") \
                                  .replace (".txt", "") \
