@@ -20,6 +20,7 @@ static size_t s_opcode_bytes_cnt = 0;
 
 static uint8_t getbyte (void);
 static void dism_opcode (uint8_t opcode, const char *opcode_list[]);
+static void dism_opcode_reverse (uint8_t data_byte, const char *opcode_list[]);
 
 int
 main (int argc, char **argv)
@@ -68,9 +69,11 @@ main (int argc, char **argv)
 
         case 0xdd: /* ix */
             byte = getbyte ();
+
             if (byte == 0xcb)   /* ix_bits */
             {
-                dism_opcode (byte, IX_BIT_TABLE);
+                byte = getbyte ();
+                dism_opcode_reverse (byte, IX_BIT_TABLE);
             }
             else
             {
@@ -82,7 +85,8 @@ main (int argc, char **argv)
             byte = getbyte ();
             if (byte == 0xcb)   /* iy_bits */
             {
-                dism_opcode (byte, IY_BIT_TABLE);
+                byte = getbyte ();
+                dism_opcode_reverse (byte, IY_BIT_TABLE);
             }
             else
             {
@@ -236,6 +240,24 @@ dism_opcode (uint8_t opcode_byte, const char *opcode_table[])
 
     *buf_iter = '\0';
     printf ("\t%-*s\t\t", (int)OPCODE_MAX_STRLEN, buf);
+}
+
+static void
+dism_opcode_reverse (uint8_t data_byte, const char *opcode_list[])
+{
+    size_t bytes_cnt;
+    uint8_t opcode = getbyte ();
+
+    s_opcode_bytes_cnt -= 2;        /* dont overflow s_opcode_bytes  */
+    bytes_cnt = s_opcode_bytes_cnt; /* backup the base count */
+    fseek (s_fp, -2L, SEEK_CUR);    /* let dism_opcode read databyte */
+    dism_opcode (opcode, opcode_list);
+
+    fseek (s_fp, 1L, SEEK_CUR);     /* realign data stream for next opcode */
+
+    s_opcode_bytes[bytes_cnt++] = data_byte;    /* set correct print order */
+    s_opcode_bytes[bytes_cnt++] = opcode;
+    s_opcode_bytes_cnt = bytes_cnt;             /* fix the base count */
 }
 
 /* end of file */
