@@ -14,7 +14,7 @@ inc     c
 dec     c
 ld      c,#0x!
 rrca
-djnz    e
+djnz    #0x^
 ld      de,#0x@
 ld      (de),a
 inc     de
