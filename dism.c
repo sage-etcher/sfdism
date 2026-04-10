@@ -12,7 +12,7 @@
 #include "opcodes.h"
 
 static FILE *s_fp = NULL;
-static uint16_t s_offset = 0xc000;
+static uint16_t s_offset = 0x0000;
 
 static uint16_t s_opcode_addr = 0x0000;
 static uint8_t s_opcode_bytes[OPCODE_MAX_BYTES];
@@ -30,7 +30,14 @@ main (int argc, char **argv)
     uint8_t byte = 0x00;
     size_t i = 0;
 
-    filepath = argv[1];
+    if (argc <= 2)
+    {
+        printf ("usage: dismz80 OFFSET BIN_FILE\n");
+        return 1;
+    }
+
+    s_offset = strtoul(argv[1], NULL, 16);
+    filepath = argv[2];
     s_fp = fopen (filepath, "rb");
     if (s_fp <= 0)
     {
