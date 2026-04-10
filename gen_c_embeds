@@ -8,6 +8,8 @@ if len (sys.argv) < 3:
 output_file = sys.argv[1]
 input_files = sys.argv[2:]
 
+bad_opcode_str = ';BAD OP - '
+
 with open (output_file, "w+", encoding="utf-8") as outfile:
     outfile.write (f"/* {output_file} - generated during build by gen_c_embeds\n")
     outfile.write (f" * from source files: {', '.join (input_files)}\n")
@@ -15,7 +17,7 @@ with open (output_file, "w+", encoding="utf-8") as outfile:
 
     outfile.write ("#include <stddef.h>\n\n")
 
-    opcode_max_strlen = 0
+    mnemonic_max_strlen = len(bad_opcode_str) + 2
 
     for input_file in input_files:
         with open (input_file, "r") as infile:
@@ -32,26 +34,35 @@ with open (output_file, "w+", encoding="utf-8") as outfile:
                                  .replace ("-", "_") \
                                  .upper ()
 
-            outfile.write (f"const size_t {var_name}_LEN = {input_length};\n")
-            outfile.write (f"const char *{var_name}_TABLE[{input_length}] = \u007b\n")
+            outfile.write (f"const char *{var_name}_TABLE[256] = \u007b\n")
 
-            opcode_index = 0;
+            opcode_index = -1;
             for line in input_contents:
-                outfile.write (f"\t\"{line}\",\t/* {opcode_index:02x} */\n")
-                opcode_index += 1
+                bytecode_str, mnemonic = line.split(' ', 1)
+                bytecode = int('0x0' + bytecode_str, base = 16)
 
-                opcode_strlen = len (line)
-                if '@' in line:
-                    opcode_strlen += 4
-                elif '$' in line:
-                    opcode_strlen += 2
+                for i in range(opcode_index+1, bytecode):
+                    outfile.write (f"\t\"{bad_opcode_str}{i:02x}\",\n")
 
-                if opcode_strlen > opcode_max_strlen:
-                    opcode_max_strlen = opcode_strlen
+                outfile.write (f"\t\"{mnemonic}\",\n")
+                opcode_index = bytecode
+
+
+                mnemonic_strlen = len (mnemonic)
+                if '@' in mnemonic:
+                    mnemonic_strlen += 4
+                elif '$' in mnemonic:
+                    mnemonic_strlen += 2
+
+                if mnemonic_strlen > mnemonic_max_strlen:
+                    mnemonic_max_strlen = mnemonic_strlen
+
+            for i in range(opcode_index+1, 0xff+1):
+                outfile.write (f"\t\"{bad_opcode_str}{i:02x}\",\n")
 
             outfile.write (f"\u007d;\n\n")
 
-    outfile.write (f"const size_t OPCODE_MAX_STRLEN = {opcode_max_strlen};\n\n")
+    outfile.write (f"const size_t OPCODE_MAX_STRLEN = {mnemonic_max_strlen};\n\n")
     outfile.write ("/* end of file */")
 
 # end of file

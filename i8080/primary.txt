@@ -1,256 +1,244 @@
-nop
-lxi     b,0@h
-stax    b
-inx     b
-inr     b
-dcr     b
-mvi     b,0!h
-rlc
-*nop
-dad     b
-ldax    b
-dcx     b
-inr     c
-dcr     c
-mvi     c,0!h
-rrc
-*nop
-lxi     d,0@h
-stax    d
-inx     d
-inr     d
-dcr     d
-mvi     d,0!h
-ral
-*nop
-dad     d
-ldax    d
-dcx     d
-inr     e
-dcr     e
-mvi     e,0!h
-rar
-*nop
-lxi     h,0@h
-shld    0@h
-inx     h
-inr     h
-dcr     h
-mvi     h,0!h
-daa
-*nop
-dad     h
-lhld    0@h
-dcx     h
-inr     l
-dcr     l
-mvi     l,0!h
-cma
-*nop
-lxi     sp,0@h
-sta     0@h
-inx     sp
-inr     m
-dcr     m
-mvi     m,0!h
-stc
-*nop
-dad     sp
-lda     0@h
-dcx     sp
-inr     a
-dcr     a
-mvi     a,0!h
-cmc
-mov     b,b
-mov     b,c
-mov     b,d
-mov     b,e
-mov     b,h
-mov     b,l
-mov     b,m
-mov     b,a
-mov     c,b
-mov     c,c
-mov     c,d
-mov     c,e
-mov     c,h
-mov     c,l
-mov     c,m
-mov     c,a
-mov     d,b
-mov     d,c
-mov     d,d
-mov     d,e
-mov     d,h
-mov     d,l
-mov     d,m
-mov     d,a
-mov     e,b
-mov     e,c
-mov     e,d
-mov     e,e
-mov     e,h
-mov     e,l
-mov     e,m
-mov     e,a
-mov     h,b
-mov     h,c
-mov     h,d
-mov     h,e
-mov     h,h
-mov     h,l
-mov     h,m
-mov     h,a
-mov     l,b
-mov     l,c
-mov     l,d
-mov     l,e
-mov     l,h
-mov     l,l
-mov     l,m
-mov     l,a
-mov     m,b
-mov     m,c
-mov     m,d
-mov     m,e
-mov     m,h
-mov     m,l
-hlt
-mov     m,a
-mov     a,b
-mov     a,c
-mov     a,d
-mov     a,e
-mov     a,h
-mov     a,l
-mov     a,m
-mov     a,a
-add     b
-add     c
-add     d
-add     e
-add     h
-add     l
-add     m
-add     a
-adc     b
-adc     c
-adc     d
-adc     e
-adc     h
-adc     l
-adc     m
-adc     a
-sub     b
-sub     c
-sub     d
-sub     e
-sub     h
-sub     l
-sub     m
-sub     a
-sbb     b
-sbb     c
-sbb     d
-sbb     e
-sbb     h
-sbb     l
-sbb     m
-sbb     a
-ana     b
-ana     c
-ana     d
-ana     e
-ana     h
-ana     l
-ana     m
-ana     a
-xra     b
-xra     c
-xra     d
-xra     e
-xra     h
-xra     l
-xra     m
-xra     a
-ora     b
-ora     c
-ora     d
-ora     e
-ora     h
-ora     l
-ora     m
-ora     a
-cmp     b
-cmp     c
-cmp     d
-cmp     e
-cmp     h
-cmp     l
-cmp     m
-cmp     a
-rnz
-pop     b
-jnz     0@h
-jmp     0@h
-cnz     0@h
-push    b
-adi     0!h
-rst     0
-rz
-ret
-jz      0@h
-*jmp    0@h
-cz      0@h
-call    0@h
-aci     0!h
-rst
-rnc
-pop     d
-jnc     0@h
-out     0!h
-cnc     0@h
-push    d
-sui     0!h
-rst     2
-rc
-*ret
-jc      0@h
-in      0!h
-cc      0@h
-*call   0@h
-sbi     0!h
-rst
-rpo
-pop
-jpo     0@h
-xthl
-cpo     0@h
-push
-ani     0!h
-rst
-rpe
-pchl
-jpe     0@h
-xchg
-cpe     0@h
-*call   0@h
-xri     0!h
-rst
-rp
-pop     psw
-jp      0@h
-di
-cp      0@h
-push    0sw
-ori     0!h
-rst
-rm
-sphl
-jm      0@h
-ei
-cm      0@h
-*call   0@h
-cpi     0!h
-rst
+00 nop
+01 lxi     b,0@h
+02 stax    b
+03 inx     b
+04 inr     b
+05 dcr     b
+06 mvi     b,0!h
+07 rlc
+09 dad     b
+0a ldax    b
+0b dcx     b
+0c inr     c
+0d dcr     c
+0e mvi     c,0!h
+0f rrc
+11 lxi     d,0@h
+12 stax    d
+13 inx     d
+14 inr     d
+15 dcr     d
+16 mvi     d,0!h
+17 ral
+19 dad     d
+1a ldax    d
+1b dcx     d
+1c inr     e
+1d dcr     e
+1e mvi     e,0!h
+1f rar
+21 lxi     h,0@h
+22 shld    0@h
+23 inx     h
+24 inr     h
+25 dcr     h
+26 mvi     h,0!h
+27 daa
+29 dad     h
+2a lhld    0@h
+2b dcx     h
+2c inr     l
+2d dcr     l
+2e mvi     l,0!h
+2f cma
+31 lxi     sp,0@h
+32 sta     0@h
+33 inx     sp
+34 inr     m
+35 dcr     m
+36 mvi     m,0!h
+37 stc
+39 dad     sp
+3a lda     0@h
+3b dcx     sp
+3c inr     a
+3d dcr     a
+3e mvi     a,0!h
+3f cmc
+40 mov     b,b
+41 mov     b,c
+42 mov     b,d
+43 mov     b,e
+44 mov     b,h
+45 mov     b,l
+46 mov     b,m
+47 mov     b,a
+48 mov     c,b
+49 mov     c,c
+4a mov     c,d
+4b mov     c,e
+4c mov     c,h
+4d mov     c,l
+4e mov     c,m
+4f mov     c,a
+50 mov     d,b
+51 mov     d,c
+52 mov     d,d
+53 mov     d,e
+54 mov     d,h
+55 mov     d,l
+56 mov     d,m
+57 mov     d,a
+58 mov     e,b
+59 mov     e,c
+5a mov     e,d
+5b mov     e,e
+5c mov     e,h
+5d mov     e,l
+5e mov     e,m
+5f mov     e,a
+60 mov     h,b
+61 mov     h,c
+62 mov     h,d
+63 mov     h,e
+64 mov     h,h
+65 mov     h,l
+66 mov     h,m
+67 mov     h,a
+68 mov     l,b
+69 mov     l,c
+6a mov     l,d
+6b mov     l,e
+6c mov     l,h
+6d mov     l,l
+6e mov     l,m
+6f mov     l,a
+70 mov     m,b
+71 mov     m,c
+72 mov     m,d
+73 mov     m,e
+74 mov     m,h
+75 mov     m,l
+76 hlt
+77 mov     m,a
+78 mov     a,b
+79 mov     a,c
+7a mov     a,d
+7b mov     a,e
+7c mov     a,h
+7d mov     a,l
+7e mov     a,m
+7f mov     a,a
+80 add     b
+81 add     c
+82 add     d
+83 add     e
+84 add     h
+85 add     l
+86 add     m
+87 add     a
+88 adc     b
+89 adc     c
+8a adc     d
+8b adc     e
+8c adc     h
+8d adc     l
+8e adc     m
+8f adc     a
+90 sub     b
+91 sub     c
+92 sub     d
+93 sub     e
+94 sub     h
+95 sub     l
+96 sub     m
+97 sub     a
+98 sbb     b
+99 sbb     c
+9a sbb     d
+9b sbb     e
+9c sbb     h
+9d sbb     l
+9e sbb     m
+9f sbb     a
+a0 ana     b
+a1 ana     c
+a2 ana     d
+a3 ana     e
+a4 ana     h
+a5 ana     l
+a6 ana     m
+a7 ana     a
+a8 xra     b
+a9 xra     c
+aa xra     d
+ab xra     e
+ac xra     h
+ad xra     l
+ae xra     m
+af xra     a
+b0 ora     b
+b1 ora     c
+b2 ora     d
+b3 ora     e
+b4 ora     h
+b5 ora     l
+b6 ora     m
+b7 ora     a
+b8 cmp     b
+b9 cmp     c
+ba cmp     d
+bb cmp     e
+bc cmp     h
+bd cmp     l
+be cmp     m
+bf cmp     a
+c0 rnz
+c1 pop     b
+c2 jnz     0@h
+c3 jmp     0@h
+c4 cnz     0@h
+c5 push    b
+c6 adi     0!h
+c7 rst     0
+c8 rz
+c9 ret
+ca jz      0@h
+cc cz      0@h
+cd call    0@h
+ce aci     0!h
+cf rst
+d0 rnc
+d1 pop     d
+d2 jnc     0@h
+d3 out     0!h
+d4 cnc     0@h
+d5 push    d
+d6 sui     0!h
+d7 rst     2
+d8 rc
+da jc      0@h
+db in      0!h
+dc cc      0@h
+de sbi     0!h
+df rst
+e0 rpo
+e1 pop
+e2 jpo     0@h
+e3 xthl
+e4 cpo     0@h
+e5 push
+e6 ani     0!h
+e7 rst
+e8 rpe
+e9 pchl
+ea jpe     0@h
+eb xchg
+ec cpe     0@h
+ee xri     0!h
+ef rst
+f0 rp
+f1 pop     psw
+f2 jp      0@h
+f3 di
+f4 cp      0@h
+f5 push    0sw
+f6 ori     0!h
+f7 rst
+f8 rm
+f9 sphl
+fa jm      0@h
+fb ei
+fc cm      0@h
+fe cpi     0!h
+ff rst

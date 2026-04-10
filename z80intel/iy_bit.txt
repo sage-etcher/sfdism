@@ -1,256 +1,33 @@
-;BAD OP
-;BAD OP
-;BAD OP
-;BAD OP
-;BAD OP
-;BAD OP
-rlc     [iy%]
-;BAD OP
-;BAD OP
-;BAD OP
-;BAD OP
-;BAD OP
-;BAD OP
-;BAD OP
-rrc     [iy%]
-;BAD OP
-;BAD OP
-;BAD OP
-;BAD OP
-;BAD OP
-;BAD OP
-;BAD OP
-rl      [iy%]
-;BAD OP
-;BAD OP
-;BAD OP
-;BAD OP
-;BAD OP
-;BAD OP
-;BAD OP
-rr      [iy%]
-;BAD OP
-;BAD OP
-;BAD OP
-;BAD OP
-;BAD OP
-;BAD OP
-;BAD OP
-sla     [iy%]
-;BAD OP
-;BAD OP
-;BAD OP
-;BAD OP
-;BAD OP
-;BAD OP
-;BAD OP
-sra     [iy%]
-;BAD OP
-;BAD OP
-;BAD OP
-;BAD OP
-;BAD OP
-;BAD OP
-;BAD OP
-sll     [iy%]
-;BAD OP
-;BAD OP
-;BAD OP
-;BAD OP
-;BAD OP
-;BAD OP
-;BAD OP
-srl     [iy%]
-;BAD OP
-;BAD OP
-;BAD OP
-;BAD OP
-;BAD OP
-;BAD OP
-;BAD OP
-bit     0,[iy%]
-;BAD OP
-;BAD OP
-;BAD OP
-;BAD OP
-;BAD OP
-;BAD OP
-;BAD OP
-bit     1,[iy%]
-;BAD OP
-;BAD OP
-;BAD OP
-;BAD OP
-;BAD OP
-;BAD OP
-;BAD OP
-bit     2,[iy%]
-;BAD OP
-;BAD OP
-;BAD OP
-;BAD OP
-;BAD OP
-;BAD OP
-;BAD OP
-bit     3,[iy%]
-;BAD OP
-;BAD OP
-;BAD OP
-;BAD OP
-;BAD OP
-;BAD OP
-;BAD OP
-bit     4,[iy%]
-;BAD OP
-;BAD OP
-;BAD OP
-;BAD OP
-;BAD OP
-;BAD OP
-;BAD OP
-bit     5,[iy%]
-;BAD OP
-;BAD OP
-;BAD OP
-;BAD OP
-;BAD OP
-;BAD OP
-;BAD OP
-bit     6,[iy%]
-;BAD OP
-;BAD OP
-;BAD OP
-;BAD OP
-;BAD OP
-;BAD OP
-;BAD OP
-bit     7,[iy%]
-;BAD OP
-;BAD OP
-;BAD OP
-;BAD OP
-;BAD OP
-;BAD OP
-;BAD OP
-res     0,[iy%]
-;BAD OP
-;BAD OP
-;BAD OP
-;BAD OP
-;BAD OP
-;BAD OP
-;BAD OP
-res     1,[iy%]
-;BAD OP
-;BAD OP
-;BAD OP
-;BAD OP
-;BAD OP
-;BAD OP
-;BAD OP
-res     2,[iy%]
-;BAD OP
-;BAD OP
-;BAD OP
-;BAD OP
-;BAD OP
-;BAD OP
-;BAD OP
-res     3,[iy%]
-;BAD OP
-;BAD OP
-;BAD OP
-;BAD OP
-;BAD OP
-;BAD OP
-;BAD OP
-res     4,[iy%]
-;BAD OP
-;BAD OP
-;BAD OP
-;BAD OP
-;BAD OP
-;BAD OP
-;BAD OP
-res     5,[iy%]
-;BAD OP
-;BAD OP
-;BAD OP
-;BAD OP
-;BAD OP
-;BAD OP
-;BAD OP
-res     6,[iy%]
-;BAD OP
-;BAD OP
-;BAD OP
-;BAD OP
-;BAD OP
-;BAD OP
-;BAD OP
-res     7,[iy%]
-;BAD OP
-;BAD OP
-;BAD OP
-;BAD OP
-;BAD OP
-;BAD OP
-;BAD OP
-set     0,[iy%]
-;BAD OP
-;BAD OP
-;BAD OP
-;BAD OP
-;BAD OP
-;BAD OP
-;BAD OP
-set     1,[iy%]
-;BAD OP
-;BAD OP
-;BAD OP
-;BAD OP
-;BAD OP
-;BAD OP
-;BAD OP
-set     2,[iy%]
-;BAD OP
-;BAD OP
-;BAD OP
-;BAD OP
-;BAD OP
-;BAD OP
-;BAD OP
-set     3,[iy%]
-;BAD OP
-;BAD OP
-;BAD OP
-;BAD OP
-;BAD OP
-;BAD OP
-;BAD OP
-set     4,[iy%]
-;BAD OP
-;BAD OP
-;BAD OP
-;BAD OP
-;BAD OP
-;BAD OP
-;BAD OP
-set     5,[iy%]
-;BAD OP
-;BAD OP
-;BAD OP
-;BAD OP
-;BAD OP
-;BAD OP
-;BAD OP
-set     6,[iy%]
-;BAD OP
-;BAD OP
-;BAD OP
-;BAD OP
-;BAD OP
-;BAD OP
-;BAD OP
-set     7,[iy%]
-;BAD OP
+06 rlc     [iy%]
+0e rrc     [iy%]
+16 rl      [iy%]
+1e rr      [iy%]
+26 sla     [iy%]
+2e sra     [iy%]
+36 sll     [iy%]
+3e srl     [iy%]
+46 bit     0,[iy%]
+4e bit     1,[iy%]
+56 bit     2,[iy%]
+5e bit     3,[iy%]
+66 bit     4,[iy%]
+6e bit     5,[iy%]
+76 bit     6,[iy%]
+7e bit     7,[iy%]
+86 res     0,[iy%]
+8e res     1,[iy%]
+96 res     2,[iy%]
+9e res     3,[iy%]
+a6 res     4,[iy%]
+ae res     5,[iy%]
+b6 res     6,[iy%]
+be res     7,[iy%]
+c6 set     0,[iy%]
+ce set     1,[iy%]
+d6 set     2,[iy%]
+de set     3,[iy%]
+e6 set     4,[iy%]
+ee set     5,[iy%]
+f6 set     6,[iy%]
+fe set     7,[iy%]
+

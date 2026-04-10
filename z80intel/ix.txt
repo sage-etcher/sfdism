@@ -1,256 +1,83 @@
-;BAD OP
-;BAD OP
-;BAD OP
-;BAD OP
-;BAD OP
-;BAD OP
-;BAD OP
-;BAD OP
-;BAD OP
-dadx    b
-;BAD OP
-;BAD OP
-;BAD OP
-;BAD OP
-;BAD OP
-;BAD OP
-;BAD OP
-;BAD OP
-;BAD OP
-;BAD OP
-;BAD OP
-;BAD OP
-;BAD OP
-;BAD OP
-;BAD OP
-dadx    d
-;BAD OP
-;BAD OP
-;BAD OP
-;BAD OP
-;BAD OP
-;BAD OP
-;BAD OP
-lxi     x,0@h
-sixd    0@h
-inx     x
-inrx    h
-dcrx    h
-mvix    h,0!h
-;BAD OP
-;BAD OP
-dadx    x
-lixd    0@h
-dcx     x
-inrx    l
-dcrx    l
-mvix    l,0!h
-;BAD OP
-;BAD OP
-;BAD OP
-;BAD OP
-;BAD OP
-inr     [ix%]
-dcr     [ix%]
-mvi     [ix%],#0x!
-;BAD OP
-;BAD OP
-dadx    sp
-;BAD OP
-;BAD OP
-;BAD OP
-;BAD OP
-;BAD OP
-;BAD OP
-;BAD OP
-;BAD OP
-;BAD OP
-;BAD OP
-movx    b,h
-movx    b,l
-mov     b,[ix%]
-;BAD OP
-;BAD OP
-;BAD OP
-;BAD OP
-;BAD OP
-movx    c,h
-movx    c,l
-mov     c,[ix%]
-;BAD OP
-;BAD OP
-;BAD OP
-;BAD OP
-;BAD OP
-movx    d,h
-movx    d,l
-mov     d,[ix%]
-;BAD OP
-;BAD OP
-;BAD OP
-;BAD OP
-;BAD OP
-movx    e,h
-movx    e,l
-mov     e,[ix%]
-;BAD OP
-movx    h,b
-movx    h,c
-movx    h,d
-movx    h,e
-mov     h,[ix%]
-;BAD OP
-mov     [ix%],h
-movx    h,a
-movx    l,b
-movx    l,c
-movx    l,d
-movx    l,e
-;BAD OP
-;BAD OP
-mov     l,[ix%]
-movx    l,a
-mov     [ix%],b
-mov     [ix%],c
-mov     [ix%],d
-mov     [ix%],e
-mov     [ix%],h
-mov     [ix%],l
-;BAD OP
-mov     [ix%],a
-;BAD OP
-;BAD OP
-;BAD OP
-;BAD OP
-movx    a,h
-movx    a,l
-ld      a,[ix%]
-;BAD OP
-;BAD OP
-;BAD OP
-;BAD OP
-;BAD OP
-adxr    h
-adxr    l
-add     [ix%]
-;BAD OP
-;BAD OP
-;BAD OP
-;BAD OP
-;BAD OP
-acxr    h
-acxr    l
-adc     [ix%]
-;BAD OP
-;BAD OP
-;BAD OP
-;BAD OP
-;BAD OP
-suxr    h
-suxr    l
-sub     [ix%]
-;BAD OP
-;BAD OP
-;BAD OP
-;BAD OP
-;BAD OP
-sbxr    h
-sbxr    l
-sbb     [ix%]
-;BAD OP
-;BAD OP
-;BAD OP
-;BAD OP
-;BAD OP
-ndxr    h
-ndxr    l
-ana     [ix%]
-;BAD OP
-;BAD OP
-;BAD OP
-;BAD OP
-;BAD OP
-xrxr    h
-xrxr    l
-xra     [ix%]
-;BAD OP
-;BAD OP
-;BAD OP
-;BAD OP
-;BAD OP
-orxr    h
-orxr    l
-ora     [ix%]
-;BAD OP
-;BAD OP
-;BAD OP
-;BAD OP
-;BAD OP
-cpxr    h
-cpxr    l
-cmp     [ix%]
-;BAD OP
-;BAD OP
-;BAD OP
-;BAD OP
-;BAD OP
-;BAD OP
-;BAD OP
-;BAD OP
-;BAD OP
-;BAD OP
-;BAD OP
-;BAD OP
-;BAD OP - DDCB PAGE
-;BAD OP
-;BAD OP
-;BAD OP
-;BAD OP
-;BAD OP
-;BAD OP
-;BAD OP
-;BAD OP
-;BAD OP
-;BAD OP
-;BAD OP
-;BAD OP
-;BAD OP
-;BAD OP
-;BAD OP
-;BAD OP
-;BAD OP
-;BAD OP
-;BAD OP
-;BAD OP
-;BAD OP
-pop     x
-;BAD OP
-xtix
-;BAD OP
-push    x
-;BAD OP
-;BAD OP
-;BAD OP
-pcix
-;BAD OP
-;BAD OP
-;BAD OP
-;BAD OP
-;BAD OP
-;BAD OP
-;BAD OP
-;BAD OP
-;BAD OP
-;BAD OP
-;BAD OP
-;BAD OP
-;BAD OP
-;BAD OP
-;BAD OP
-spix
-;BAD OP
-;BAD OP
-;BAD OP
-;BAD OP
-;BAD OP
-;BAD OP
+09 dadx    b
+19 dadx    d
+21 lxi     x,0@h
+22 sixd    0@h
+23 inx     x
+24 inrx    h
+25 dcrx    h
+26 mvix    h,0!h
+29 dadx    x
+2a lixd    0@h
+2b dcx     x
+2c inrx    l
+2d dcrx    l
+2e mvix    l,0!h
+34 inr     [ix%]
+35 dcr     [ix%]
+36 mvi     [ix%],#0x!
+39 dadx    sp
+44 movx    b,h
+45 movx    b,l
+46 mov     b,[ix%]
+4c movx    c,h
+4d movx    c,l
+4e mov     c,[ix%]
+54 movx    d,h
+55 movx    d,l
+56 mov     d,[ix%]
+5c movx    e,h
+5d movx    e,l
+5e mov     e,[ix%]
+60 movx    h,b
+61 movx    h,c
+62 movx    h,d
+63 movx    h,e
+64 mov     h,[ix%]
+66 mov     [ix%],h
+67 movx    h,a
+68 movx    l,b
+69 movx    l,c
+6a movx    l,d
+6b movx    l,e
+6e mov     l,[ix%]
+6f movx    l,a
+70 mov     [ix%],b
+71 mov     [ix%],c
+72 mov     [ix%],d
+73 mov     [ix%],e
+74 mov     [ix%],h
+75 mov     [ix%],l
+77 mov     [ix%],a
+7c movx    a,h
+7d movx    a,l
+7e ld      a,[ix%]
+84 adxr    h
+85 adxr    l
+86 add     [ix%]
+8c acxr    h
+8d acxr    l
+8e adc     [ix%]
+94 suxr    h
+95 suxr    l
+96 sub     [ix%]
+9c sbxr    h
+9d sbxr    l
+9e sbb     [ix%]
+a4 ndxr    h
+a5 ndxr    l
+a6 ana     [ix%]
+ac xrxr    h
+ad xrxr    l
+ae xra     [ix%]
+b4 orxr    h
+b5 orxr    l
+b6 ora     [ix%]
+bc cpxr    h
+bd cpxr    l
+be cmp     [ix%]
+e1 pop     x
+e3 xtix
+e5 push    x
+e9 pcix
+f9 spix
+

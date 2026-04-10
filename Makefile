@@ -36,10 +36,7 @@ build: dism${FLAVOR}
 clean:
 	rm -f *.tmp
 	rm -f *.o
-	rm -f i8080_opcodes.c
-	rm -f i8085_opcodes.c
-	rm -f z80_opcodes.c
-	rm -f z80intel_opcodes.c
+	rm -f opcodes*.c
 	rm -f dismi8080
 	rm -f dismi8085
 	rm -f dismz80
@@ -48,10 +45,13 @@ clean:
 .c.o:
 	cc -c -o $@ $< -DFLAVOR=${FLAVOR}
 
-${FLAVOR}_opcodes.c: ${EMBEDS}
+opcodes${FLAVOR}.c: ${EMBEDS}
 	./gen_c_embeds $@ ${EMBEDS}
 
-dism${FLAVOR}: dism.o ${FLAVOR}_opcodes.o
+dism${FLAVOR}.o: dism.o
+	mv $< $@
+
+dism${FLAVOR}: dism${FLAVOR}.o opcodes${FLAVOR}.o
 	cc -o $@ $^ -DFLAVOR=${FLAVOR}
 
 # end of file

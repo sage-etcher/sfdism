@@ -1,256 +1,56 @@
-;BAD OP
-;BAD OP
-;BAD OP
-;BAD OP
-;BAD OP
-;BAD OP
-;BAD OP
-;BAD OP
-;BAD OP
-;BAD OP
-;BAD OP
-;BAD OP
-;BAD OP
-;BAD OP
-;BAD OP
-;BAD OP
-;BAD OP
-;BAD OP
-;BAD OP
-;BAD OP
-;BAD OP
-;BAD OP
-;BAD OP
-;BAD OP
-;BAD OP
-;BAD OP
-;BAD OP
-;BAD OP
-;BAD OP
-;BAD OP
-;BAD OP
-;BAD OP
-;BAD OP
-;BAD OP
-;BAD OP
-;BAD OP
-;BAD OP
-;BAD OP
-;BAD OP
-;BAD OP
-;BAD OP
-;BAD OP
-;BAD OP
-;BAD OP
-;BAD OP
-;BAD OP
-;BAD OP
-;BAD OP
-;BAD OP
-;BAD OP
-;BAD OP
-;BAD OP
-;BAD OP
-;BAD OP
-;BAD OP
-;BAD OP
-;BAD OP
-;BAD OP
-;BAD OP
-;BAD OP
-;BAD OP
-;BAD OP
-;BAD OP
-;BAD OP
-in      b,(c)
-out     (c),b
-sbc     hl,bc
-ld      (#0x@),bc
-neg
-retn
-im      0
-ld      i,a
-in      c,(c)
-out     (c),c
-adc     hl,bc
-ld      bc,(#0x@)
-;BAD OP
-reti
-;BAD OP
-ld      r,a
-in      d,(c)
-out     (c),d
-sbc     hl,de
-ld      (#0x@),de
-;BAD OP
-;BAD OP
-im      1
-ld      a,i
-in      e,(c)
-out     (c),e
-adc     hl,de
-ld      de,(#0x@)
-;BAD OP
-;BAD OP
-im      2
-ld      a,r
-in      h,(c)
-out     (c),h
-sbc     hl,hl
-;BAD OP
-;BAD OP
-;BAD OP
-;BAD OP
-rrd
-in      l,(c)
-out     (c),l
-adc     hl,hl
-;BAD OP
-;BAD OP
-;BAD OP
-;BAD OP
-rld
-;BAD OP
-;BAD OP
-sbc     hl,hl
-ld      (#0x@),sp
-;BAD OP
-;BAD OP
-;BAD OP
-;BAD OP
-in      a,(c)
-out     c,(a)
-adc     hl,sp
-ld      sp,(#0x@)
-;BAD OP
-;BAD OP
-;BAD OP
-;BAD OP
-;BAD OP
-;BAD OP
-;BAD OP
-;BAD OP
-;BAD OP
-;BAD OP
-;BAD OP
-;BAD OP
-;BAD OP
-;BAD OP
-;BAD OP
-;BAD OP
-;BAD OP
-;BAD OP
-;BAD OP
-;BAD OP
-;BAD OP
-;BAD OP
-;BAD OP
-;BAD OP
-;BAD OP
-;BAD OP
-;BAD OP
-;BAD OP
-;BAD OP
-;BAD OP
-;BAD OP
-;BAD OP
-;BAD OP
-;BAD OP
-;BAD OP
-;BAD OP
-ldi
-cpi
-ini
-outi
-;BAD OP
-;BAD OP
-;BAD OP
-;BAD OP
-ldd
-cpd
-ind
-outd
-;BAD OP
-;BAD OP
-;BAD OP
-;BAD OP
-ldir
-cpir
-inir
-otir
-;BAD OP
-;BAD OP
-;BAD OP
-;BAD OP
-lddr
-cpdr
-indr
-otdr
-;BAD OP
-;BAD OP
-;BAD OP
-;BAD OP
-;BAD OP
-;BAD OP
-;BAD OP
-;BAD OP
-;BAD OP
-;BAD OP
-;BAD OP
-;BAD OP
-;BAD OP
-;BAD OP
-;BAD OP
-;BAD OP
-;BAD OP
-;BAD OP
-;BAD OP
-;BAD OP
-;BAD OP
-;BAD OP
-;BAD OP
-;BAD OP
-;BAD OP
-;BAD OP
-;BAD OP
-;BAD OP
-;BAD OP
-;BAD OP
-;BAD OP
-;BAD OP
-;BAD OP
-;BAD OP
-;BAD OP
-;BAD OP
-;BAD OP
-;BAD OP
-;BAD OP
-;BAD OP
-;BAD OP
-;BAD OP
-;BAD OP
-;BAD OP
-;BAD OP
-;BAD OP
-;BAD OP
-;BAD OP
-;BAD OP
-;BAD OP
-;BAD OP
-;BAD OP
-;BAD OP
-;BAD OP
-;BAD OP
-;BAD OP
-;BAD OP
-;BAD OP
-;BAD OP
-;BAD OP
-;BAD OP
-;BAD OP
-;BAD OP
-;BAD OP
-;BAD OP
-;BAD OP
-;BAD OP
-;BAD OP
+40 in      b,(c)
+41 out     (c),b
+42 sbc     hl,bc
+43 ld      (#0x@),bc
+44 neg
+45 retn
+46 im      0
+47 ld      i,a
+48 in      c,(c)
+49 out     (c),c
+4a adc     hl,bc
+4b ld      bc,(#0x@)
+4d reti
+4f ld      r,a
+50 in      d,(c)
+51 out     (c),d
+52 sbc     hl,de
+53 ld      (#0x@),de
+56 im      1
+57 ld      a,i
+58 in      e,(c)
+59 out     (c),e
+5a adc     hl,de
+5b ld      de,(#0x@)
+5e im      2
+5f ld      a,r
+60 in      h,(c)
+61 out     (c),h
+62 sbc     hl,hl
+67 rrd
+68 in      l,(c)
+69 out     (c),l
+6a adc     hl,hl
+6f rld
+72 sbc     hl,hl
+73 ld      (#0x@),sp
+78 in      a,(c)
+79 out     c,(a)
+7a adc     hl,sp
+7b ld      sp,(#0x@)
+a0 ldi
+a1 cpi
+a2 ini
+a3 outi
+a8 ldd
+a9 cpd
+aa ind
+ab outd
+b0 ldir
+b1 cpir
+b2 inir
+b3 otir
+b8 lddr
+b9 cpdr
+ba indr
+bb otdr
