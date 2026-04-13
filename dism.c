@@ -8,6 +8,7 @@
 #include <stdio.h>
 #include <stdlib.h>
 #include <string.h>
+#include <time.h>
 
 #include "opcodes.h"
 
@@ -30,10 +31,11 @@ main (int argc, char **argv)
     char *filepath = NULL;
     uint8_t byte = 0x00;
     size_t i = 0;
+    time_t now;
 
     if (argc <= 2)
     {
-        printf ("usage: dismz80 OFFSET BIN_FILE\n");
+        printf ("usage: %s OFFSET BIN_FILE\n", argv[0]);
         return 1;
     }
 
@@ -46,7 +48,11 @@ main (int argc, char **argv)
         return 1;
     }
 
-    printf ("\torg     0%04xh\n", s_offset);
+    (void)time (&now);
+    printf ("; this file was generated using %s on %s", argv[0], ctime (&now));
+    printf ("; using input binary file: %s\n", filepath);
+    printf ("; and address offset: %04x\n", s_offset);
+
     for (;;)
     {
         s_opcode_addr = s_offset;
