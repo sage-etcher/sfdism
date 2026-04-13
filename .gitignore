@@ -1,0 +1,8 @@
+_install/
+test/
+**.o
+dismi8080
+dismi8085
+dismz80
+dismz80intel
+opcodes*.c
