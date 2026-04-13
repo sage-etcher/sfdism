@@ -2,6 +2,10 @@
 .SUFFIXES:
 .SUFFIXES: .c .o
 
+DESTDIR=
+PREFIX ?=	/usr/local
+BINDIR ?=	${PREFIX}/bin
+
 FLAVOR ?= i8080
 # FLAVOR ?= i8085
 # FLAVOR ?= z80
@@ -42,11 +46,31 @@ clean:
 	rm -f dismz80
 	rm -f dismz80intel
 
+
+install:
+	install -d -m 755 ${DESTDIR}${BINDIR}/
+	install -m 755 scripts/dism_add_negative  ${DESTDIR}${BINDIR}/
+	install -m 755 scripts/dism_realign       ${DESTDIR}${BINDIR}/
+	install -m 755 scripts/sdccmap_to_sedfile ${DESTDIR}${BINDIR}/
+	-install -m 755 dismi8080                 ${DESTDIR}${BINDIR}/
+	-install -m 755 dismi8085                 ${DESTDIR}${BINDIR}/
+	-install -m 755 dismz80                   ${DESTDIR}${BINDIR}/
+	-install -m 755 dismz80intel              ${DESTDIR}${BINDIR}/
+
+uninstall:
+	rm -f ${DESTDIR}${BINDIR}/dism_add_negative
+	rm -f ${DESTDIR}${BINDIR}/dism_realign
+	rm -f ${DESTDIR}${BINDIR}/sdccmap_to_sedfile
+	rm -f ${DESTDIR}${BINDIR}/dismi8080
+	rm -f ${DESTDIR}${BINDIR}/dismi8085
+	rm -f ${DESTDIR}${BINDIR}/dismz80
+	rm -f ${DESTDIR}${BINDIR}/dismz80intel
+
 .c.o:
 	cc -c -o $@ $< -DFLAVOR=${FLAVOR}
 
 opcodes${FLAVOR}.c: ${EMBEDS}
-	./gen_c_embeds $@ ${EMBEDS}
+	./gen_c_embeds.py $@ ${EMBEDS}
 
 dism${FLAVOR}.o: dism.o
 	mv $< $@
