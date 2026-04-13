@@ -31,7 +31,7 @@ endif
 
 buildall:
 	${MAKE} build FLAVOR=i8080
-	#${MAKE} build FLAVOR=i8085
+	${MAKE} build FLAVOR=i8085
 	${MAKE} build FLAVOR=z80
 	${MAKE} build FLAVOR=z80intel
 
