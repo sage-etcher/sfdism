@@ -201,10 +201,10 @@ c7 rst     0
 c8 rz
 c9 ret
 ca jz      0@h
+cb *rstv
 cc cz      0@h
 cd call    0@h
 ce aci     0!h
-cd *rstv
 cf rst     1
 d0 rnc
 d1 pop     d
