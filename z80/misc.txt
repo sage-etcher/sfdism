@@ -32,6 +32,8 @@
 69 out     (c),l
 6a adc     hl,hl
 6f rld
+70 *in     (c)
+71 *out    (c),0
 72 sbc     hl,hl
 73 ld      (#0x@),sp
 78 in      a,(c)
