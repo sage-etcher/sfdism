@@ -6,7 +6,6 @@
 05 dcr     b
 06 mvi     b,0!h
 07 rlc
-08 *nop
 09 dad     b
 0a ldax    b
 0b dcx     b
@@ -14,7 +13,6 @@
 0d dcr     c
 0e mvi     c,0!h
 0f rrc
-10 *nop
 11 lxi     d,0@h
 12 stax    d
 13 inx     d
@@ -22,7 +20,6 @@
 15 dcr     d
 16 mvi     d,0!h
 17 ral
-18 *nop
 19 dad     d
 1a ldax    d
 1b dcx     d
@@ -30,7 +27,6 @@
 1d dcr     e
 1e mvi     e,0!h
 1f rar
-20 *nop
 21 lxi     h,0@h
 22 shld    0@h
 23 inx     h
@@ -38,7 +34,6 @@
 25 dcr     h
 26 mvi     h,0!h
 27 daa
-28 *nop
 29 dad     h
 2a lhld    0@h
 2b dcx     h
@@ -46,7 +41,6 @@
 2d dcr     l
 2e mvi     l,0!h
 2f cma
-30 *nop
 31 lxi     sp,0@h
 32 sta     0@h
 33 inx     sp
@@ -54,7 +48,6 @@
 35 dcr     m
 36 mvi     m,0!h
 37 stc
-38 *nop
 39 dad     sp
 3a lda     0@h
 3b dcx     sp
@@ -198,14 +191,13 @@ c4 cnz     0@h
 c5 push    b
 c6 adi     0!h
 c7 rst     0
-c8 *jmp    0@h
 c8 rz
 c9 ret
 ca jz      0@h
 cc cz      0@h
 cd call    0@h
 ce aci     0!h
-cf rst
+cf rst     1
 d0 rnc
 d1 pop     d
 d2 jnc     0@h
@@ -215,13 +207,11 @@ d5 push    d
 d6 sui     0!h
 d7 rst     2
 d8 rc
-d9 *ret
 da jc      0@h
 db in      0!h
 dc cc      0@h
-dd *call   0@h
 de sbi     0!h
-df rst
+df rst     3
 e0 rpo
 e1 pop
 e2 jpo     0@h
@@ -229,15 +219,14 @@ e3 xthl
 e4 cpo     0@h
 e5 push
 e6 ani     0!h
-e7 rst
+e7 rst     4
 e8 rpe
 e9 pchl
 ea jpe     0@h
 eb xchg
 ec cpe     0@h
-ed *call   0@h
 ee xri     0!h
-ef rst
+ef rst     5
 f0 rp
 f1 pop     psw
 f2 jp      0@h
@@ -245,12 +234,11 @@ f3 di
 f4 cp      0@h
 f5 push    0sw
 f6 ori     0!h
-f7 rst
+f7 rst     6
 f8 rm
 f9 sphl
 fa jm      0@h
 fb ei
 fc cm      0@h
-fd *call   0@h
 fe cpi     0!h
-ff rst
+ff rst     7
