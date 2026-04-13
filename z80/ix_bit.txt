@@ -25,8 +25,8 @@
 44 *bit    0,ixh
 45 *bit    0,ixl
 46 bit     0,(ix%)
-44 *bit    1,ixh
-45 *bit    1,ixl
+4c *bit    1,ixh
+4d *bit    1,ixl
 4e bit     1,(ix%)
 54 *bit    2,ixh
 55 *bit    2,ixl

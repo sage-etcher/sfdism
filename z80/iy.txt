@@ -10,8 +10,8 @@
 2a ld      iy,(#0x@)
 2b dec     iy
 2c *inc    iyl
-2c *dec    iyl
-2c *ld     iyl,#0x!
+2d *dec    iyl
+2e *ld     iyl,#0x!
 34 inc     (iy%)
 35 dec     (iy%)
 36 ld      (iy%),#0x!
