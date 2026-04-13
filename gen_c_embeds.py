@@ -34,7 +34,7 @@ with open (output_file, "w+", encoding="utf-8") as outfile:
                                  .replace ("-", "_") \
                                  .upper ()
 
-            outfile.write (f"const char *{var_name}_TABLE[256] = \u007b\n")
+            outfile.write (f"const char *{var_name}_TABLE[257] = \u007b\n")
 
             opcode_index = -1;
             for line in input_contents:
