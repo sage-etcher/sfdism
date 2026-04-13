@@ -62,8 +62,8 @@
 6b lhld    0@h
 6c mlt     h
 6f rld
-70 inp     m
-71 outp    m
+70 *in0
+71 *out0
 72 dsbc    sp
 73 sspd    0@h
 74 tsio    0!h
