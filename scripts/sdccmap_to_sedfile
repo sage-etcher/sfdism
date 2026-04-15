@@ -17,6 +17,7 @@ while IFS= read -r line; do
     else # i8080
         printf "\t|sed 's/0%sh/%s%s/gi' \\\\\n" "$addr" "$module" "$label" >>"$sed_file"
     fi
+    printf "\t|sed 's/^.*;%s/%s%s:\r&/gi' \\\\\n" "$addr" "$module" "$label" >>"$sed_file"
 
 done <<<`grep -E '^ +0000[A-F0-9]{4} +_[a-zA-Z0-9_]+ +[a-zA-Z0-9_]+$' $map_file \
         |sed 's/^ \+0000//'`
